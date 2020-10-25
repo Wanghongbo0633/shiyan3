@@ -21,4 +21,72 @@ shiyan3
 
 实验课堂上讲基本的架构基本功能进行实现，课后结合资料与人讨论完善系统，期间对每个重要版本进行保存。尽可能去尝试新的东西，在运用的过程中发现程序的bug或者是程序逻辑上的不完整的地方，尽力去除bug，完善逻辑。解决bug的一般方法是，语法错误则读提示，查相关语法资料，逻辑bug则可以设置断点，或者分模块调试。程序的逻辑不完善则需要重新构思，新模块的实现方法和与老模块的兼容性。
 
-四、流程图 
+四、流程图 https://github.com/Wanghongbo0633/shiyan3/blob/main/2.jpg
+
+五、核心代码
+package shiyan3;
+import java.util.Scanner;
+
+public class Test {
+	static void cls(){
+		System.out.println("\n\n\n\n\n\n");
+	}
+public static void main(String[] args) {
+	Teacher you= new Teacher("游煦",201002,"男");
+	Course math = new Course("01","高数","教学楼101","周一第一节",you);
+	Course english = new Course("02","视听说","图书馆503","周二第三节",you);
+    Scanner sc = new Scanner(System.in);
+
+	Student li = new Student(2019311,"LYL");
+	System.out.println("老师基本信息"+you);
+	li.getcourse(math);
+	li.getcourse(english);
+    int i = 1;
+    System.out.println("进入选课系统：");
+    while(i != 0){
+	    System.out.println("请选择：\n1：选课    2：退课   3：显示已选   0：退出");
+
+		i = sc.nextInt();
+		sc.nextLine();     //抛弃剩下内容便于下次调用nextLine
+		if(i == 1){
+			cls();
+			System.out.println("目前课程：01 高数;02 视听说 \n 	请选择：");
+			String i1 = sc.nextLine();
+			if(i1.equals("01")){
+                 li.xuanke(1);
+                 System.out.println("选课成功");
+			}
+			else if(i1.equals("02")){
+				li.xuanke(2);
+				System.out.println("选课成功");
+			}
+            else System.out.println("暂无此选课，返回上级");
+		}
+		else if(i == 2){
+			cls();
+			System.out.println("目前课程：01 高数;02 视听说 \n 	请选择：");
+			String i1 = sc.nextLine();
+			if(i1.equals("01")){
+				li.tuike(1);
+			}
+			else if(i1.equals("02")){
+				li.tuike(2);
+			}
+			else System.out.println("暂无此选课,无法退课，返回上级");
+		}
+
+        else if(i == 3){
+			li.showall();
+		}
+        System.out.println("课程信息已更新");
+    }
+
+
+	//math.show();
+
+	
+}
+}
+
+六、实验结果
+
