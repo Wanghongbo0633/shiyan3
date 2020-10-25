@@ -89,4 +89,7 @@ public static void main(String[] args) {
 }
 
 六、实验结果
+https://github.com/Wanghongbo0633/shiyan3/blob/main/1.PNG
 
+七、实验感想
+对父类与子类的理解，对于继承的使用更深刻了，学会了使用tostring方法。
